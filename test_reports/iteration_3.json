@@ -1,0 +1,43 @@
+{
+  "summary": "Focused re-test of iteration_2 HIGH-priority bug (Hero headline overlapping Champion logo at lg+ widths) plus smoke-test of theme/testids/routing/contact-form/responsive. The hero overlap bug is FIXED. At every required lg+ breakpoint (1024, 1280, 1440, 1920) the second-span (containing 'Reengineered.') right edge is strictly less than the logo's left edge, both via getBoundingClientRect on the span and via Range.getBoundingClientRect on the rendered glyphs. Visual screenshots at 1280 and 1920 confirm clear horizontal gap between the headline word and the Champion wordmark. All other iteration_2 PASS findings remain green: 0 console errors, all required testids present on home + product-detail, product-detail-page bg = rgb(255,255,255), specs-table renders 10 rows, contact form accepts multi-char input (no focus loss), no horizontal overflow at 390/768/1280/1920.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_data": {
+    "hero_overlap_check": {
+      "1024x800":  { "span_right": 640.00,   "glyph_right": 600.30,  "logo_left": 688.00,   "overlap_bbox": false, "overlap_glyph": false, "gap_px_min": 47.70 },
+      "1280x900":  { "span_right": 810.66,   "glyph_right": 719.13,  "logo_left": 858.66,   "overlap_bbox": false, "overlap_glyph": false, "gap_px_min": 48.00 },
+      "1440x900":  { "span_right": 917.33,   "glyph_right": 719.13,  "logo_left": 965.33,   "overlap_bbox": false, "overlap_glyph": false, "gap_px_min": 48.00 },
+      "1920x1080": { "span_right": 1164.00,  "glyph_right": 1048.97, "logo_left": 1212.00,  "overlap_bbox": false, "overlap_glyph": false, "gap_px_min": 48.00 }
+    },
+    "smoke_checks": {
+      "home_required_testids_missing": [],
+      "product_detail_page_present": true,
+      "product_detail_bg": "rgb(255, 255, 255)",
+      "specs_table_rows": 10,
+      "contact_form_multi_char_input_ok": true,
+      "horizontal_overflow_390": false,
+      "horizontal_overflow_768": false,
+      "horizontal_overflow_1280": false,
+      "horizontal_overflow_1920": false,
+      "console_errors": 0
+    }
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Hero.jsx fix is clean and minimal: text col widened to lg:col-span-8, logo col narrowed to lg:col-span-4, font scaled down to lg:text-[4.5rem] xl:text-[5.5rem] 2xl:text-[6.5rem], and the problematic lg:whitespace-nowrap removed. Headline now fits within its column at every tested breakpoint with ~48px+ gap to the logo.",
+    "No regressions introduced — all iteration_2 PASS findings still pass."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (frontend-only project)", "frontend": "100% — iteration_2's only open HIGH bug is fixed, no new issues found." },
+  "test_credentials": "N/A",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Hero headline / logo overlap HIGH bug from iteration_2 is FIXED and verified at 1024/1280/1440/1920 via programmatic getBoundingClientRect of both the span and the rendered glyph Range, and visually via screenshots. Smoke-test of theme colors, testids, routing, contact form, marquee, mobile menu, product detail page, specs-table, and responsive overflow all continue to pass.",
+  "rca of the issue": "Bug RCA (iteration_2): lg:whitespace-nowrap + lg:text-[6.5rem]/xl:text-[7.5rem] caused the word 'Reengineered.' to paint outside its lg:col-span-7 track and overlap the right-column logo. Fix applied in /app/frontend/src/components/Hero.jsx: widened text column to lg:col-span-8, narrowed logo column to lg:col-span-4, reduced lg/xl/2xl font-size to 4.5/5.5/6.5rem, and removed lg:whitespace-nowrap. Verified fixed at all lg+ breakpoints."
+}

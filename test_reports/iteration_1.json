@@ -1,0 +1,42 @@
+{
+  "summary": "Frontend-only UI testing of LUMEN sanitary products marketing site (single-page). All sections, data-testids, navigation, scrolling, footer, social links, mobile menu, and responsive layout verified working. One CRITICAL bug found in the Contact form: text inputs (Name/Email/Subject) lose focus after the first character due to the `Field` sub-component being declared inside the `Contact` component body (causing remount on every keystroke). Textarea (Message) is unaffected because it's declared inline. No console errors.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Contact / Field",
+        "issue": "Inputs for Name, Email, Subject lose focus after every keystroke. Typing 'John' into contact-name-input yielded only 'J'; typing 'john@test.com' into contact-email-input yielded only 'j'. Root cause: the `Field` functional component is declared INSIDE the `Contact` component (lines 28-41 of /app/frontend/src/components/Contact.jsx). On each render React sees a new component identity and unmounts/remounts the underlying <input>, dropping focus and breaking smooth typing. The Message textarea (declared inline in JSX) does NOT have this issue.",
+        "selector": "[data-testid=contact-name-input], [data-testid=contact-email-input], [data-testid=contact-subject-input]",
+        "priority": "HIGH"
+      },
+      {
+        "component": "Contact form clearing",
+        "issue": "After submit, contact-name-input still shows the previously typed value instead of clearing — likely a side effect of the Field-remount issue above. Resolving the Field declaration should also fix this.",
+        "selector": "[data-testid=contact-name-input]",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Move the `Field` component declaration OUTSIDE of `Contact` (to module scope) in /app/frontend/src/components/Contact.jsx, OR inline the three <input> fields directly in JSX like the message textarea already is. This will fix the focus-loss bug and the post-submit clearing issue.",
+    "After fix, retest by typing multi-character values into name/email/subject inputs and verifying the full string is captured and focus is retained."
+  ],
+  "critical_code_review_comments": [
+    "Contact.jsx: `Field` component defined inside parent component — React anti-pattern that causes remount-per-render. Must be hoisted to module scope or inlined.",
+    "Footer newsletter form has no submit success/error feedback (only e.preventDefault). Acceptable for a placeholder but flag for future."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "92% (1 critical input-focus bug; all rendering/navigation/responsive/toasts working)"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All data-testids verified present and visible: navbar (logo + 4 links + CTA + mobile toggle), hero (section/explore/story buttons), products (section + p1..p6), founders (section + card-0/1), contact (form + 4 inputs + submit), footer (address, 5 socials, newsletter form/input/submit, copyright). Smooth scroll navigation works. Empty contact submit shows error toast; filled submit shows success toast and clears message field. Mobile menu toggle opens overlay with all 4 mobile-prefixed links. No horizontal overflow at 1920x800 or 375x800. Zero console errors. Only the input-focus bug in Contact form remains.",
+  "rca of the issue": "ROOT CAUSE: In /app/frontend/src/components/Contact.jsx, the `Field` arrow-function component is declared inside the `Contact` component body. Every state update in Contact (e.g., setForm on each keystroke via the `handle` onChange) re-renders Contact, which re-creates the `Field` function reference. React then sees a different component type at the same JSX position and unmounts the old input and mounts a new one — destroying focus. REPRODUCTION: 1) Open the site, 2) scroll to Contact, 3) click the Name input, 4) type 'John' — only 'J' is captured. FIX: hoist `Field` to module scope (outside `Contact`) OR replace the three Field usages with inline <input> markup mirroring the existing inline message <textarea> block."
+}

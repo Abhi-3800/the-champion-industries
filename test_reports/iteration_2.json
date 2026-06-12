@@ -1,0 +1,39 @@
+{
+  "summary": "Frontend-only UI re-test after major theme overhaul (white bg / navy headings / gold accents / ink body) and new Champion logo. Verified: 0 console errors, all 28 required data-testids present on home + product-detail, theme colors render correctly (paragraphs = rgb(26,44,79) ink; eyebrows = rgb(138,90,26) gold; navbar links = navy; footer = navy), Hero CTA buttons scroll to correct sections, navbar anchor links scroll on home and navigate-then-scroll from /products/cpvc-inspection-chamber, View Details routes to product detail, product detail page is fully white-themed (all sections bg rgb(255,255,255)), specs-table renders all rows, Back link returns to home, contact form accepts multi-character typing (Iteration_1 focus-loss bug is FIXED — Field is now at module scope), form validation works, submit shows sonner success toast, mobile menu hamburger opens/closes and links scroll, marquee renders, no horizontal overflow at 390px/768px/1280px/1920px on either route. ONE HIGH-PRIORITY visual bug remains: the headline word 'Reengineered.' visually overflows the left col-span-7 and overlaps the Champion logo at every lg+ breakpoint (1024/1280/1440/1920).",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Hero.jsx — h1 second line",
+        "issue": "At lg breakpoints (>=1024px) the second-line span 'Reengineered.' uses `lg:whitespace-nowrap` together with `text-[6.5rem] xl:text-[7.5rem]`. The word is wider than its lg:col-span-7 grid column, so it visually overflows to the right and overlaps the Champion logo image (which sits in lg:col-span-5). Confirmed on screenshots at 1024px, 1280px, 1440px and 1920px — letters of 'ENGINEERED' run under/through the logo. The bounding-box (getBoundingClientRect) does NOT report overlap because a `block` span with whitespace-nowrap still reports rect.width clipped to parent grid track even though glyphs paint outside. This is the exact issue the agent context claimed was fixed; it is NOT fixed.",
+        "selector": "[data-testid='hero-headline'] span:nth-child(2)",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Hero (lg+)",
+        "issues": ["Headline 'Reengineered.' overlaps Champion logo image. Fix options: (a) drop `lg:whitespace-nowrap` and allow the word to wrap on its own line; (b) reduce lg/xl font-size (e.g. lg:text-[5rem] xl:text-[6rem]); (c) widen left column (lg:col-span-8) and shrink right logo column (lg:col-span-4); (d) shorten word — e.g. 'Re-engineered.' with a soft-hyphen so it can break at lg."]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix hero headline overlap with Champion logo at lg+ widths in /app/frontend/src/components/Hero.jsx (line 61-63). Recommended quick fix: replace `lg:whitespace-nowrap` with a smaller xl breakpoint font-size or remove nowrap and let it wrap to a third line. Re-test at 1024 / 1280 / 1440 / 1920."
+  ],
+  "critical_code_review_comments": [
+    "Hero.jsx headline uses fluid sizes 12vw/11vw and then jumps to fixed 6.5rem at lg. The lg fixed size combined with `lg:whitespace-nowrap` is the root cause of the logo overlap — a single responsive fluid clamp (e.g. clamp(2.5rem, 8vw, 7rem)) without nowrap would behave better.",
+    "Contact.jsx Field component is now correctly at module scope (line 7) — iteration_1 input-focus bug is resolved.",
+    "ChampionLogo.jsx accepts either `size` (square) or `width` (aspect-preserving) — clean API.",
+    "All interactive elements have data-testid attributes — good testability."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (frontend-only project; backend untouched)", "frontend": "95% — 1 visual overlap bug at lg+; everything else (theme colors, testids, routing, scroll-to, mobile menu, form focus/submit/toast, responsive overflow, product detail page) works." },
+  "test_credentials": "N/A",
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Theme verification ✅ (paragraphs ink rgb(26,44,79), eyebrows gold rgb(138,90,26), navbar links navy rgb(10,37,64), footer text navy, product-detail-page bg + all sections rgb(255,255,255)). All 28 required testids exist on /  and /products/cpvc-inspection-chamber. Routing & smooth-scroll work in both directions (home->PD and PD->home with anchor scrolling via navigate('/')+setTimeout). Mobile menu open/close + 4 mobile-prefixed testids work. Contact form: name/email/subject/message all accept full multi-char input (focus-loss bug RESOLVED in iteration_2). Form submission shows sonner success toast and resets state. Responsive: no horizontal overflow at 390 / 768 / 1280 / 1920 on either route. Marquee scrolls. Specs-table is a div-based grid (not <table>), 10 rows visible. Console: 0 errors. ONLY OPEN ISSUE: Hero headline 'Reengineered.' overflows lg:col-span-7 and overlaps logo at lg+ widths — root cause is `lg:whitespace-nowrap` on Hero.jsx line 61.",
+  "rca of the issue": "ROOT CAUSE: /app/frontend/src/components/Hero.jsx line 61 sets `lg:whitespace-nowrap` on the inner span containing 'Reengineered.'. At lg/xl the surrounding h1 is `lg:text-[6.5rem] xl:text-[7.5rem]` (~104-120px). The lg:col-span-7 track (~640px at 1280px and ~860px at 1920px) is narrower than the rendered word, so the glyphs paint outside the column and sit on top of the right-column ChampionLogo image. The `[overflow-wrap:normal]` at lg disables wrapping, and nowrap explicitly forbids it. REPRO: open https://champion-flow.preview.emergentagent.com at any width >=1024px and observe last few letters of 'Reengineered.' overlapping the Champion wordmark image. FIX (one of): remove `lg:whitespace-nowrap`; OR lower lg/xl font sizes (e.g. lg:text-[5rem] xl:text-[6rem]); OR widen left column to lg:col-span-8 and right to lg:col-span-4; OR introduce a soft-hyphen so the word can break."
+}

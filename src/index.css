@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.font-display {
+    font-family: 'Clash Display', 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.font-body {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ---------- LIGHT THEME: BLUE + GOLD ON WHITE ---------- */
+
+/* metallic-text now = blue gradient (used for big headings) */
+.metallic-text {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0a2540 35%, #1e40af 70%, #0a2540 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: metallicShimmer 12s ease-in-out infinite;
+}
+
+/* gold-shimmer text variant (still available for special use) */
+.gold-shimmer-text {
+    background: linear-gradient(135deg, #c08e3a 0%, #8a5a1a 50%, #d4a857 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Heading + accent colors */
+.text-navy { color: #0a2540; }
+.text-royal { color: #1e3a8a; }
+.text-blue-soft { color: #3b58a8; }
+
+/* Body text — deep navy slate for max readability on white */
+.text-ink { color: #1a2c4f; }
+.text-ink-soft { color: #3a4a6b; }
+
+/* Gold body & accents (reserved for eyebrows, labels, dividers, CTAs) */
+.text-gold { color: #8a5a1a; }
+.text-gold-mid { color: #a07229; }
+.text-gold-soft { color: #c08e3a; }
+.text-gold-light { color: #d4a857; }
+
+@keyframes metallicShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Sheen sweep on buttons (lighter for white BG) */
+.chrome-sheen {
+    position: relative;
+    overflow: hidden;
+}
+.chrome-sheen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.9s ease;
+}
+.chrome-sheen:hover::before {
+    left: 130%;
+}
+
+/* Subtle paper texture overlay (replaces grain on dark) */
+.grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Selection: blue */
+::selection {
+    background: #0a2540;
+    color: #ffffff;
+}
+
+/* Scrollbar: blue + gold */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f6f1e8;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1e3a8a, #0a2540);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #c08e3a, #8a5a1a);
+}
+
+/* Soft cream surface (used as alt section background) */
+.cream-surface {
+    background: linear-gradient(135deg, #fbf6ec 0%, #f5ede1 100%);
+}
+
+/* Subtle paper card surface (replaces brushed-steel) */
+.paper-card {
+    background:
+      repeating-linear-gradient(90deg, rgba(192,142,58,0.04) 0px, rgba(192,142,58,0.04) 1px, transparent 1px, transparent 3px),
+      linear-gradient(135deg, #ffffff 0%, #fbf6ec 100%);
+}
+
+/* Focus ring */
+.focus-ring:focus {
+    outline: none;
+    border-bottom-color: #0a2540 !important;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.marquee-track {
+    animation: marquee 40s linear infinite;
+}
+
+/* Soft cream radial glow */
+.cream-glow {
+    background: radial-gradient(circle at center, rgba(212,168,87,0.18) 0%, transparent 65%);
+}
+.blue-glow {
+    background: radial-gradient(circle at center, rgba(30,58,138,0.10) 0%, transparent 65%);
+}
+
+/* Primary CTA button gradient (navy blue) */
+.btn-primary {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0a2540 100%);
+    color: #f5ede1;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #234aa8 0%, #1a3060 100%);
+}
+
+/* Secondary outline button */
+.btn-outline {
+    background: transparent;
+    color: #0a2540;
+    border: 1px solid rgba(10,37,64,0.4);
+}
+.btn-outline:hover {
+    background: rgba(10,37,64,0.05);
+    border-color: #0a2540;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 215 60% 15%;
+        --border: 36 30% 75%;
+        --input: 36 20% 90%;
+        --ring: 220 70% 30%;
+        --radius: 0px;
+    }
+    * { border-color: hsl(var(--border)); }
+}

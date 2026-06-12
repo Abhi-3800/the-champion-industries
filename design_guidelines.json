@@ -1,0 +1,131 @@
+{
+  "theme": "dark",
+  "archetype": "5",
+  "archetype_name": "Luxury / Industrial High-Contrast",
+  "brand_name": "LUMEN",
+  "typography": {
+    "heading_font": "Clash Display",
+    "body_font": "Manrope",
+    "heading_classes": "font-bold tracking-tighter uppercase text-zinc-100",
+    "body_classes": "font-light tracking-wide leading-relaxed text-zinc-400"
+  },
+  "colors": {
+    "background": "#0a0a0c",
+    "surface": "#131315",
+    "surface_glass": "bg-black/50 backdrop-blur-2xl border border-white/10",
+    "primary": "#E5E7EB",
+    "secondary": "#9CA3AF",
+    "accent_metallic": "bg-gradient-to-br from-zinc-200 via-zinc-400 to-zinc-700 text-transparent bg-clip-text",
+    "text_primary": "#F3F4F6",
+    "text_secondary": "#9CA3AF"
+  },
+  "layout_spacing": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-8",
+    "nav_height": "h-24"
+  },
+  "components": {
+    "navbar": {
+      "style": "fixed top-0 w-full z-50 bg-[#0a0a0c]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300",
+      "links": ["Home", "Products", "Founders", "Contact Us"],
+      "logo": "text-2xl font-black tracking-[0.2em] uppercase bg-gradient-to-r from-zinc-100 to-zinc-500 bg-clip-text text-transparent"
+    },
+    "hero": {
+      "style": "relative min-h-screen flex items-center justify-center overflow-hidden",
+      "overlay": "absolute inset-0 bg-black/60 z-10",
+      "content_classes": "relative z-20 text-center flex flex-col items-center gap-8 max-w-4xl px-4"
+    },
+    "product_card": {
+      "style": "group relative overflow-hidden bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-500",
+      "image_wrapper": "relative w-full h-80 overflow-hidden bg-zinc-900",
+      "image_effect": "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out grayscale group-hover:grayscale-0",
+      "content": "p-8 flex flex-col justify-end absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    },
+    "founder_card": {
+      "style": "group relative overflow-hidden bg-zinc-900 border border-white/5 p-8 flex flex-col md:flex-row items-center gap-12",
+      "image": "w-48 h-48 rounded-full object-cover grayscale border-4 border-zinc-800 group-hover:border-zinc-500 transition-all duration-700",
+      "text_content": "flex flex-col gap-4 text-center md:text-left"
+    },
+    "contact_form": {
+      "style": "grid grid-cols-1 gap-8 max-w-2xl mx-auto",
+      "input": "w-full bg-transparent border-b border-white/20 text-white px-0 py-4 focus:outline-none focus:border-white transition-colors duration-300 font-light text-lg",
+      "button": "mt-8 inline-flex items-center justify-center px-12 py-5 bg-zinc-100 text-black font-semibold tracking-widest uppercase hover:bg-zinc-300 transition-colors duration-300"
+    },
+    "footer": {
+      "style": "bg-black border-t border-white/10 pt-24 pb-12",
+      "text": "text-zinc-500 text-sm tracking-widest uppercase text-center"
+    }
+  },
+  "motion_and_effects": {
+    "scroll": "Lenis smooth scroll (momentum scrolling)",
+    "reveals": "Use Framer Motion for slide-up and opacity fade when scrolling into view",
+    "hover": "Subtle scale-up (1.05), grayscale to color transitions, metallic sheen on borders"
+  },
+  "media": {
+    "hero_bg": "https://images.pexels.com/photos/13722861/pexels-photo-13722861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "products": [
+      {
+        "category": "Faucets",
+        "name": "Chrome Apex",
+        "url": "https://images.unsplash.com/photo-1609210884848-2d530cfb2a07?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwxfHxzdGFpbmxlc3MlMjBzdGVlbCUyMGtpdGNoZW4lMjBzaW5rJTIwZmF1Y2V0fGVufDB8fHx8MTc4MDkwODY3M3ww&ixlib=rb-4.1.0&q=85",
+        "span": "col-span-1 md:col-span-8 row-span-2"
+      },
+      {
+        "category": "Sinks",
+        "name": "Obsidian Basin",
+        "url": "https://images.unsplash.com/photo-1595514535116-d0401260e7cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwY2VyYW1pYyUyMGJhdGhyb29tJTIwc2lua3xlbnwwfHx8fDE3ODA5MDg2Njd8MA&ixlib=rb-4.1.0&q=85",
+        "span": "col-span-1 md:col-span-4 row-span-1"
+      },
+      {
+        "category": "Showers",
+        "name": "Rainfall Titanium",
+        "url": "https://images.unsplash.com/photo-1652662700928-5a4685e87d64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1NzZ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBzaG93ZXIlMjBoZWFkfGVufDB8fHx8MTc4MDkwODY2N3ww&ixlib=rb-4.1.0&q=85",
+        "span": "col-span-1 md:col-span-4 row-span-2"
+      },
+      {
+        "category": "Bathtubs",
+        "name": "Freestanding Monolith",
+        "url": "https://images.unsplash.com/photo-1558739592-eba0c9c8857d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxmcmVlc3RhbmRpbmclMjB3aGl0ZSUyMGJhdGh0dWIlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODA5MDg2Njd8MA&ixlib=rb-4.1.0&q=85",
+        "span": "col-span-1 md:col-span-8 row-span-1"
+      },
+      {
+         "category": "Accessories",
+         "name": "Minimalist Towel Hook",
+         "url": "https://images.pexels.com/photos/19980252/pexels-photo-19980252.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+         "span": "col-span-1 md:col-span-6 row-span-1"
+      },
+      {
+        "category": "Toilets",
+        "name": "Smart Washlet Zero",
+        "url": "https://images.pexels.com/photos/6585625/pexels-photo-6585625.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "span": "col-span-1 md:col-span-6 row-span-1"
+      }
+    ],
+    "founders": [
+      {
+        "name": "Elena Rostova",
+        "role": "Chief of Design",
+        "bio": "Former lead architect at minimal studios, Elena brings her passion for ruthless geometric precision to LUMEN's sanitary lines.",
+        "url": "https://images.unsplash.com/photo-1758600587730-a11917c13b85?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4MDkwODY2N3ww&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "name": "Marcus Vance",
+        "role": "Lead Engineer",
+        "bio": "With a background in aerospace engineering, Marcus ensures every valve and finish meets the absolute pinnacle of durability.",
+        "url": "https://images.unsplash.com/photo-1765776830139-72b2184dae5a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRhcmslMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4MDkwODY2N3ww&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and use 'framer-motion' for fluid reveal animations. Install 'lucide-react' for icons (e.g., social, arrows). Install 'sonner' for success toast.",
+    "Do NOT use pure #000000 for main backgrounds; use #0a0a0c (obsidian) for the deepest level and #131315 for surface cards.",
+    "Implement the navbar as a sticky top component with a glassmorphism effect (backdrop-blur-md bg-black/50) and a subtle bottom border. Must be responsive.",
+    "The Hero section MUST have the hero_bg image with a bg-black/60 overlay. The hero text must use the metallic gradient text class.",
+    "The Products section should be a Bento-style asymmetric grid (Mode A: The Tetris Grid). Use the provided 'span' fields to create an interesting asymmetric layout on md/lg screens. Do not use equal squares.",
+    "For the Contact Us form, use minimal HTML elements. Input fields should just be bottom-bordered (border-b) without full backgrounds, simulating a high-end editorial form. Implement a generic React state for submission that triggers a success toast via sonner.",
+    "Include data-testid attributes on all interactive elements: e.g., data-testid='nav-home-link', data-testid='contact-submit-button'.",
+    "Keep typography strict: Headings in Clash Display (uppercase, tight tracking), Body in Manrope.",
+    "Do NOT use Shadcn's card component if it enforces white backgrounds or thick borders; build custom HTML components with tailwind to match this dark metallic aesthetic."
+  ]
+}
