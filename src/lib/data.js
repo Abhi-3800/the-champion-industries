@@ -1,3 +1,7 @@
+import ProductViews from "../images/product-views.jpg";
+import HomePageView from "../images/home-page-view.jpg";
+import MainView from "../images/main-view.jpg";
+
 export const BRAND = {
   name: "CHAMPION",
   tagline: "Engineered For Performance",
@@ -7,9 +11,9 @@ export const BRAND = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home", testid: "nav-home-link" },
-  { label: "Product", href: "#products", testid: "nav-products-link" },
-  { label: "Founders", href: "#founders", testid: "nav-founders-link" },
-  { label: "Contact Us", href: "#contact", testid: "nav-contact-link" },
+  { label: "Product", href: "/products/cpvc-inspection-chamber", testid: "nav-products-link" },
+  { label: "Founders", href: "/founders", testid: "nav-founders-link" },
+  { label: "Contact Us", href: "/contact-us", testid: "nav-contact-link" },
 ];
 
 // Single hero product
@@ -25,12 +29,11 @@ export const HERO_PRODUCT = {
   longDescription:
     "Champion's patented CPVC Inspection Chamber is the new benchmark for residential, commercial and industrial drainage. Built from high-grade Chlorinated Polyvinyl Chloride with pre-installed backflow valves, an inbuilt slope and a leakproof body — it eliminates the failures of conventional brick-and-mortar chambers and outdated PVC alternatives.",
   finish: "CPVC · Beige",
-  coverImage:
-    "https://customer-assets.emergentagent.com/job_d429fb85-29b7-4151-93c1-1f5d43f25a9f/artifacts/37p2b396_1678229c-5ebb-4ef5-80df-a6efcb2bffb5.jpeg",
+  coverImage: HomePageView,
   featuresPage:
     "https://customer-assets.emergentagent.com/job_d429fb85-29b7-4151-93c1-1f5d43f25a9f/artifacts/8jgjv8nc_8a827feb-c95e-4b33-8ef7-d5512f1f6218.jpeg",
-  viewsPage:
-    "https://customer-assets.emergentagent.com/job_d429fb85-29b7-4151-93c1-1f5d43f25a9f/artifacts/og7q1cjh_f34da37b-2fa0-4fb8-96f0-db57c735af13.jpeg",
+  viewsPage: ProductViews,
+  homeImage: MainView,
 };
 
 export const FEATURES = [
@@ -83,7 +86,7 @@ export const PRODUCT_VIEWS = [
   { label: "Back View" },
 ];
 
-export const FOUNDERS = [
+export const FOUNDERSDATA = [
   {
     name: "Rajesh Mehta",
     role: "Co-Founder · Chief Engineer",

@@ -19,7 +19,7 @@ export const ProductCTA = () => (
       </p>
       <div className="flex flex-wrap items-center justify-center gap-6">
         <a
-          href="/#contact"
+          href="/contact-us"
           className="chrome-sheen btn-primary inline-flex items-center gap-4 px-8 py-5 text-[12px] tracking-[0.3em] uppercase font-semibold transition-all"
         >
           Contact Us

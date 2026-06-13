@@ -18,6 +18,12 @@ export const Navbar = () => {
   }, []);
 
   const handleAnchorClick = (e, href) => {
+    if (href.startsWith("/")) {
+      e.preventDefault();
+      setOpen(false);
+      navigate(href);
+      return;
+    }
     e.preventDefault();
     setOpen(false);
     if (location.pathname === "/") {

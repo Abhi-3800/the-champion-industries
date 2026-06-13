@@ -17,6 +17,11 @@ export const Footer = () => {
   const navigate = useNavigate();
 
   const handleAnchor = (e, href) => {
+    if (href.startsWith("/")) {
+      navigate(href);
+      return;
+    }
+
     e.preventDefault();
     if (location.pathname === "/") {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -94,14 +99,6 @@ export const Footer = () => {
                   </a>
                 </li>
               ))}
-              <li>
-                <Link
-                  to="/products/cpvc-inspection-chamber"
-                  className="text-navy hover:text-[#1e3a8a] text-sm tracking-wide transition-colors"
-                >
-                  Product Detail
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -151,11 +148,11 @@ export const Footer = () => {
           <p className="text-[10px] tracking-[0.3em] uppercase text-gold-mid" data-testid="copyright">
             © {year} {BRAND.fullName} Pvt. Ltd. — All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6 text-[10px] tracking-[0.3em] uppercase text-gold-mid">
+          {/* <div className="flex items-center gap-6 text-[10px] tracking-[0.3em] uppercase text-gold-mid">
             <a href="#" className="hover:text-[#0a2540]">Privacy</a>
             <a href="#" className="hover:text-[#0a2540]">Terms</a>
             <a href="#" className="hover:text-[#0a2540]">Cookies</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

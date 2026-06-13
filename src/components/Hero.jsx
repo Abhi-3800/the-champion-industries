@@ -94,7 +94,7 @@ export const Hero = () => {
                 <ArrowDownRight size={16} />
               </a>
               <a
-                href="#founders"
+                href="/founders"
                 data-testid="hero-story-button"
                 onClick={(e) => {
                   e.preventDefault();

@@ -73,20 +73,20 @@ export const Products = () => {
             {/* Image side */}
             <div className="md:col-span-7 relative h-[420px] md:h-[640px] overflow-hidden bg-gradient-to-br from-[#fbf6ec] to-white">
               <img
-                src={p.coverImage}
+                src={p.homeImage}
                 alt={p.name}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-center opacity-95 group-hover:scale-[1.03] transition-transform duration-1500 ease-out"
+                className="absolute inset-0 w-full h-full object-contain object-center opacity-95 group-hover:scale-[1.03] transition-transform duration-1500 ease-out"
               />
               {/* Top eyebrow */}
-              <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
+              {/* <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
                 <span className="text-[10px] tracking-[0.35em] uppercase text-navy bg-white/85 backdrop-blur-md px-3 py-1.5 border border-[#c08e3a]/50">
                   {p.category}
                 </span>
                 <span className="text-[10px] tracking-[0.3em] uppercase text-gold bg-white/85 backdrop-blur-md px-3 py-1.5 border border-[#c08e3a]/50">
                   {p.code}
                 </span>
-              </div>
+              </div> */}
               {/* Bottom badge */}
               <div className="absolute bottom-6 left-6 text-[10px] tracking-[0.3em] uppercase text-navy bg-white/85 backdrop-blur-md px-3 py-1.5 border border-[#c08e3a]/50">
                 ★ India&apos;s First Patented

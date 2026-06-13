@@ -126,6 +126,10 @@ body {
     background: linear-gradient(135deg, #fbf6ec 0%, #f5ede1 100%);
 }
 
+.cream-surface-custom {
+    background: white;
+}
+
 /* Subtle paper card surface (replaces brushed-steel) */
 .paper-card {
     background:

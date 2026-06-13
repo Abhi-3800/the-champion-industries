@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter } from "lucide-react";
-import { FOUNDERS } from "../lib/data";
+import { FOUNDERSDATA } from "../lib/data";
 
 const FounderCard = ({ f, i }) => (
   <motion.div
@@ -67,7 +67,7 @@ export const Founders = () => {
     <section
       id="founders"
       data-testid="founders-section"
-      className="relative py-24 md:py-32 cream-surface"
+      className="relative py-24 md:py-32 cream-surface-custom"
     >
       <div className="max-w-[1480px] mx-auto px-6 md:px-12 lg:px-20">
         <motion.div
@@ -98,7 +98,7 @@ export const Founders = () => {
         </motion.div>
 
         <div className="grid gap-6 md:gap-10">
-          {FOUNDERS.map((f, i) => (
+          {FOUNDERSDATA.map((f, i) => (
             <FounderCard key={f.name} f={f} i={i} />
           ))}
         </div>

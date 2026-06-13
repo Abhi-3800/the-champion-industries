@@ -10,6 +10,8 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ProductDetail } from "./components/ProductDetail";
 import ScrollToTop from "./components/ScrollToTop";
+import ContactUs from "./components/pages/ContactUs";
+import FoundersPage from "./components/pages/FoundersPage";
 
 const Landing = () => (
   <main>
@@ -50,6 +52,8 @@ function App() {
             path="/products/cpvc-inspection-chamber"
             element={<ProductDetail />}
           />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/founders" element={<FoundersPage />} />
         </Routes>
         <Footer />
       </div>

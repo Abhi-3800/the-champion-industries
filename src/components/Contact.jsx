@@ -39,17 +39,56 @@ export const Contact = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in your name, email and a message.");
       return;
     }
+
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitting(false);
-    toast.success("Message sent. Champion Industries will be in touch shortly.", {
-      description: `Thank you, ${form.name}.`,
-    });
-    setForm({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xdavplzv",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            subject: form.subject,
+            message: form.message,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success(
+        "Message sent. Champion Industries will be in touch shortly.",
+        {
+          description: `Thank you, ${form.name}.`,
+        }
+      );
+
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error(
+        "Unable to send your message right now. Please try again later."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
