@@ -29,7 +29,7 @@ export const Hero = () => {
       <div className="hidden lg:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 [writing-mode:vertical-rl] rotate-180 items-center gap-6">
         <div className="h-20 w-px bg-[#c08e3a]/60" />
         <span className="text-[10px] tracking-[0.5em] uppercase text-gold">
-          PATENTED · CPVC · INDIA
+          PATENTED · pvc · INDIA
         </span>
         <div className="h-20 w-px bg-[#c08e3a]/60" />
       </div>
@@ -46,7 +46,7 @@ export const Hero = () => {
             >
               <span className="w-12 h-px bg-[#c08e3a]" />
               <span className="text-[11px] tracking-[0.4em] uppercase text-gold">
-                India&apos;s First Patented CPVC Inspection Chamber
+                India&apos;s First Patented pvc Inspection Chamber
               </span>
             </motion.div>
 
@@ -70,7 +70,7 @@ export const Hero = () => {
               className="mt-8 text-ink text-base md:text-lg leading-relaxed max-w-2xl"
             >
               Champion Industries solves the drainage problem at its source.
-              Our patented CPVC Inspection Chamber replaces unreliable brick
+              Our patented pvc Inspection Chamber replaces unreliable brick
               chambers with a leakproof, backflow-protected, factory-built
               unit — installed in minutes, engineered to last decades.
             </motion.p>

@@ -12,16 +12,30 @@ const FounderCard = ({ f, i }) => (
     data-testid={`founder-card-${i}`}
   >
     <div className="grid md:grid-cols-12 gap-0">
-      <div className="md:col-span-5 relative h-80 md:h-[420px] overflow-hidden bg-[#fbf6ec]">
-        <img
-          src={f.url}
-          alt={f.name}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/30" />
-        <div className="absolute top-5 left-5 text-[10px] tracking-[0.4em] uppercase text-navy bg-white/85 backdrop-blur-md px-3 py-1.5 border border-[#c08e3a]/50">
-          0{i + 1} / 02
+      <div className="md:col-span-5 relative h-80 md:h-[420px] bg-[#fbf6ec] flex items-center justify-center overflow-hidden">
+        <div className="w-[88%] h-[88%] overflow-hidden rounded-xl">
+          <img
+            src={f.url}
+            alt={f.name}
+            className="
+              w-full
+              h-full
+              object-cover
+              object-top
+              grayscale
+              transition-all
+              duration-700
+              group-hover:scale-[1.02]
+              group-hover:grayscale-0
+            "
+          />
         </div>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 pointer-events-none" />
+
+        {/* <div className="absolute top-5 left-5 ...">
+          0{i + 1} / 02
+        </div> */}
       </div>
       <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-between gap-8 bg-white">
         <div>
@@ -38,7 +52,7 @@ const FounderCard = ({ f, i }) => (
           <span className="text-[10px] tracking-[0.4em] uppercase text-gold-mid max-w-xs italic">
             “{f.quote}”
           </span>
-          <div className="flex items-center gap-3 shrink-0">
+          {/* <div className="flex items-center gap-3 shrink-0">
             <a
               href="#"
               aria-label="LinkedIn"
@@ -55,7 +69,7 @@ const FounderCard = ({ f, i }) => (
             >
               <Twitter size={14} />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -67,7 +81,7 @@ export const Founders = () => {
     <section
       id="founders"
       data-testid="founders-section"
-      className="relative py-24 md:py-32 cream-surface-custom"
+      className="relative cream-surface-custom"
     >
       <div className="max-w-[1480px] mx-auto px-6 md:px-12 lg:px-20">
         <motion.div
@@ -85,16 +99,15 @@ export const Founders = () => {
               <span className="w-16 h-px bg-[#c08e3a]/60" />
             </div>
             <h2 className="font-display text-5xl md:text-7xl uppercase font-bold tracking-tighter leading-[0.9]">
-              <span className="text-navy">Two engineers.</span>
+              <span className="text-navy">Two People.</span>
               <br />
               <span className="metallic-text">One mission.</span>
             </h2>
           </div>
-          <p className="md:col-span-5 md:pl-10 text-ink leading-relaxed">
-            Champion Industries was founded by a polymer engineer and a
-            manufacturing operator who refused to accept that drainage in
+          {/* <p className="md:col-span-5 md:pl-10 text-ink leading-relaxed">
+            Champion Industries was founded by a father-son duo who refused to accept that drainage in
             India had to mean failure, foul smell, and yearly repair bills.
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="grid gap-6 md:gap-10">

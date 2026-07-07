@@ -4,13 +4,13 @@
 - DO NOT modify this Testing Protocol section.
 
 ## Incorporate User Feedback
-- User confirmed: dark/charcoal theme with gold accents, single hero product, keep Founders, React Router with `/products/cpvc-inspection-chamber`, catalogue contact details.
+- User confirmed: dark/charcoal theme with gold accents, single hero product, keep Founders, React Router with `/products/pvc-inspection-chamber`, catalogue contact details.
 
 ## user_problem_statement
-Rebrand the existing single-page sanitaryware site from "LUMEN" to "Champion Industries" — a manufacturer of CPVC drainage inspection chambers — and add a separate Product Detail page at `/products/cpvc-inspection-chamber`. Keep the current dark/charcoal theme but swap chrome silver accents for gold. Single hero product (CPVC Drainage Inspection Chamber) with full catalogue feature/benefit content. Keep the Founders placeholder section. Use exact catalogue contact details (+91 62802-45646, info@championindustries.com, www.championindustries.com). Site must be fully responsive.
+Rebrand the existing single-page sanitaryware site from "LUMEN" to "Champion Industries" — a manufacturer of pvc drainage inspection chambers — and add a separate Product Detail page at `/products/pvc-inspection-chamber`. Keep the current dark/charcoal theme but swap chrome silver accents for gold. Single hero product (pvc Drainage Inspection Chamber) with full catalogue feature/benefit content. Keep the Founders placeholder section. Use exact catalogue contact details (+91 62802-45646, info@championindustries.com, www.championindustries.com). Site must be fully responsive.
 
 ## Implementation Summary
-- Added react-router-dom routing with `/` (Landing) and `/products/cpvc-inspection-chamber` (ProductDetail) routes.
+- Added react-router-dom routing with `/` (Landing) and `/products/pvc-inspection-chamber` (ProductDetail) routes.
 - New `ChampionLogo.jsx` SVG emblem (4-petal gold mark) replacing chrome diamond logo.
 - New `ScrollToTop.jsx` to reset scroll on route change.
 - New `ProductDetail.jsx` page with Back link, hero + catalogue cover image, 7 Features & Benefits, Product Views grid, 6 Applications, Why Champion checklist, 10-row Tech Specs table, CTA strip.
@@ -21,7 +21,7 @@ Rebrand the existing single-page sanitaryware site from "LUMEN" to "Champion Ind
 ## Frontend Test Scope
 1. **Landing page** loads at `/` — Champion logo, hero "Drainage, Reengineered.", marquee, single product card, founders, contact form, footer all render.
 2. **Router navigation**:
-   - Click "View Details" on product card → navigates to `/products/cpvc-inspection-chamber`.
+   - Click "View Details" on product card → navigates to `/products/pvc-inspection-chamber`.
    - Click "Back to Home" link on PD page → returns to `/` and scrolls to top.
    - Navbar logo click → returns home.
 3. **Anchor nav across routes**: while on PD page, clicking Contact / Founders / Product in navbar should navigate home then scroll to section.
@@ -36,7 +36,7 @@ Rebrand the existing single-page sanitaryware site from "LUMEN" to "Champion Ind
 - navbar, nav-home-link, nav-products-link, nav-founders-link, nav-contact-link, nav-cta-button, mobile-menu-toggle, nav-logo-link
 - hero-section, hero-headline, hero-explore-button, hero-story-button
 - marquee
-- products-section, product-card-cpvc-inspection-chamber, product-view-detail-button
+- products-section, product-card-pvc-inspection-chamber, product-view-detail-button
 - founders-section, founder-card-0, founder-card-1
 - contact-section, contact-form, contact-name-input, contact-email-input, contact-subject-input, contact-message-input, contact-submit-button
 - footer, footer-address, footer-newsletter-form, footer-newsletter-input, footer-newsletter-submit, copyright
@@ -55,12 +55,12 @@ All test cases (A through J) executed successfully. The Champion Industries mark
 - ✓ Navbar with Champion logo and brand name visible
 - ✓ Hero headline "Drainage, Reengineered." visible
 - ✓ All sections present (Hero, Marquee, Products, Founders, Contact, Footer)
-- ✓ Single product card visible (cpvc-inspection-chamber)
+- ✓ Single product card visible (pvc-inspection-chamber)
 - ✓ 2 founder cards present (founder-card-0, founder-card-1)
 - ✓ Catalogue contact info in footer (+91 62802-45646, info@championindustries.com, championindustries.com)
 
 #### Test B: Router Navigation ✅ PASSED
-- ✓ View Details button navigates to /products/cpvc-inspection-chamber
+- ✓ View Details button navigates to /products/pvc-inspection-chamber
 - ✓ Product detail page renders with correct title
 - ✓ Back link returns to home and scrolls to top
 - ✓ Navbar logo link navigates to home from PD page
@@ -83,7 +83,7 @@ All test cases (A through J) executed successfully. The Champion Industries mark
 - ✓ All 7 feature cards visible (feature-card-0 through feature-card-6)
 - ✓ All 6 application cards visible (application-card-0 through application-card-5)
 - ✓ All 6 "Why Champion" cards visible (why-card-0 through why-card-5)
-- ✓ Specs table present with correct content (CPVC, 110mm, Beige, Patented)
+- ✓ Specs table present with correct content (pvc, 110mm, Beige, Patented)
 - ✓ Request Quote CTA present
 
 #### Test G: Image Loading ✅ PASSED
@@ -108,7 +108,7 @@ All test cases (A through J) executed successfully. The Champion Industries mark
 ### Overall Status: ✅ ALL TESTS PASSED
 
 The Champion Industries website is production-ready with:
-- Two fully functional routes (/ and /products/cpvc-inspection-chamber)
+- Two fully functional routes (/ and /products/pvc-inspection-chamber)
 - Complete responsive design across all viewport sizes
 - Working navigation (router, anchor, mobile menu)
 - Functional contact form with validation

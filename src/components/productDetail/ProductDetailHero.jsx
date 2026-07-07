@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { HERO_PRODUCT } from "../../lib/data";
 
-const BADGES = ["Patented", "CPVC", "Leakproof", "Pre-Installed Valves", "110mm"];
+const BADGES = ["Patented", "pvc", "Leakproof", "Pre-Installed Valves", "110mm"];
 
 export const ProductDetailHero = () => {
   const p = HERO_PRODUCT;
@@ -49,7 +49,7 @@ export const ProductDetailHero = () => {
               data-testid="product-detail-title"
               className="font-display text-5xl md:text-6xl lg:text-7xl uppercase font-bold tracking-tighter leading-[0.92]"
             >
-              <span className="metallic-text">CPVC Drainage</span>
+              <span className="metallic-text">pvc Drainage</span>
               <br />
               <span className="text-navy">Inspection Chamber</span>
             </h1>
@@ -75,7 +75,7 @@ export const ProductDetailHero = () => {
 
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <a
-                href="/#contact"
+                href="/contact-us"
                 data-testid="product-detail-cta"
                 className="chrome-sheen btn-primary inline-flex items-center gap-4 px-8 py-5 text-[12px] tracking-[0.3em] uppercase font-semibold transition-all"
               >

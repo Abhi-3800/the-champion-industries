@@ -49,7 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route
-            path="/products/cpvc-inspection-chamber"
+            path="/products/pvc-inspection-chamber"
             element={<ProductDetail />}
           />
           <Route path="/contact-us" element={<ContactUs />} />

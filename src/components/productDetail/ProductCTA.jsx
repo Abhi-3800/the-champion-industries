@@ -14,7 +14,7 @@ export const ProductCTA = () => (
       </h2>
       <p className="text-ink max-w-2xl leading-relaxed">
         Built to deliver superior drainage performance at every project.
-        Contact Champion Industries to specify the CPVC Inspection Chamber
+        Contact Champion Industries to specify the pvc Inspection Chamber
         for your next site.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-6">

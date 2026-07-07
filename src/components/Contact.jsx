@@ -97,7 +97,7 @@ export const Contact = () => {
       data-testid="contact-section"
       className="relative py-24 md:py-32 bg-white"
     >
-      <div className="max-w-[1480px] mx-auto px-6 md:px-12 lg:px-20 grid md:grid-cols-12 gap-12 lg:gap-20">
+      <div className="max-w-[1480px] mx-auto px-6 md:px-12 lg:px-20 grid md:grid-cols-12 gap-12 lg:gap-20 py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

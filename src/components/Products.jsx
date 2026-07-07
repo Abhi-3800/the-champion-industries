@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { HERO_PRODUCT } from "../lib/data";
 
 const HIGHLIGHTS = [
-  { Icon: ShieldCheck, label: "Leakproof CPVC" },
+  { Icon: ShieldCheck, label: "Leakproof pvc" },
   { Icon: Droplets, label: "Backflow Valves" },
   { Icon: Settings, label: "Configurable Ports" },
 ];
@@ -27,7 +27,7 @@ export const Products = () => {
           className="grid md:grid-cols-12 gap-8 items-end mb-16 md:mb-24"
         >
           <div className="md:col-span-7">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-6 py-5">
               <span className="text-[11px] tracking-[0.4em] uppercase text-gold">
                 02 — The Product
               </span>
@@ -48,7 +48,7 @@ export const Products = () => {
               patented, certified, and ready for site.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["CPVC", "Patented", "Pre-Installed Valves", "Inbuilt Slope", "110mm Standard"].map((c) => (
+              {["pvc", "Patented", "Pre-Installed Valves", "Inbuilt Slope", "110mm Standard"].map((c) => (
                 <span
                   key={c}
                   className="text-[10px] tracking-[0.3em] uppercase text-gold border border-[#c08e3a]/50 px-3 py-1.5"
@@ -126,7 +126,7 @@ export const Products = () => {
                   Finish · {p.finish}
                 </span>
                 <Link
-                  to="/products/cpvc-inspection-chamber"
+                  to="/products/pvc-inspection-chamber"
                   data-testid="product-view-detail-button"
                   className="chrome-sheen btn-primary inline-flex items-center gap-3 px-5 py-3 text-[11px] tracking-[0.3em] uppercase font-semibold transition-all"
                 >

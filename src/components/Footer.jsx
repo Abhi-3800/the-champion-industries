@@ -128,7 +128,7 @@ export const Footer = () => {
               </button>
             </form>
 
-            <div className="flex items-center gap-3 mt-8">
+            {/* <div className="flex items-center gap-3 mt-8">
               {socials.map(({ Icon, label, href, testid }) => (
                 <a
                   key={label}
@@ -140,7 +140,7 @@ export const Footer = () => {
                   <Icon size={14} />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 
