@@ -59,7 +59,7 @@ export const Navbar = () => {
           data-testid="nav-logo-link"
           aria-label="Champion Industries home"
         >
-          <ChampionLogo size={64} className="shrink-0 group-hover:scale-105 transition-transform duration-500" />
+          <ChampionLogo size={94} className="shrink-0 group-hover:scale-105 transition-transform duration-500" />
         </Link>
 
         {/* Desktop links */}
@@ -72,7 +72,7 @@ export const Navbar = () => {
                 data-testid={link.testid}
                 className="group relative text-[13px] tracking-[0.25em] uppercase text-[#0a2540] hover:text-[#1e3a8a] transition-colors duration-300"
               >
-                <span className="text-gold-soft mr-2">0{idx + 1}</span>
+                {/* <span className="text-gold-soft mr-2">0{idx + 1}</span> */}
                 {link.label}
                 <span className="absolute left-0 -bottom-2 h-px w-0 group-hover:w-full bg-gradient-to-r from-[#1e3a8a] to-[#c08e3a] transition-all duration-500" />
               </a>
@@ -121,7 +121,6 @@ export const Navbar = () => {
                     className="flex items-center justify-between py-4 border-b border-[#c08e3a]/20 text-sm tracking-[0.25em] uppercase text-[#0a2540]"
                   >
                     <span>
-                      <span className="text-gold-soft mr-3">0{idx + 1}</span>
                       {link.label}
                     </span>
                     <span className="text-gold-soft">→</span>

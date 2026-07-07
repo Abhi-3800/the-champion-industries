@@ -149,7 +149,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 .marquee-track {
-    animation: marquee 40s linear infinite;
+    animation: marquee 10s linear infinite;
 }
 
 /* Soft cream radial glow */

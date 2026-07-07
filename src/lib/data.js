@@ -108,18 +108,18 @@ export const FOUNDERSDATA = [
 ];
 
 export const ADDRESS = {
-  line1: "Champion Industries — Manufacturing Facility",
-  line2: "Plot 47, Industrial Estate",
-  line3: "India",
+  line1: "Gali Kartar Palace,",
+  line2: "Opposite Khanna Packers,",
+  line3: "Amritsar, 143001, India",
   phone: "+91 62802-45646",
-  email: "info@championindustries.com",
-  website: "www.championindustries.com",
-  hours: "Mon — Sat · 10:00 to 19:00",
+  website: "www.thechampionindustries.com",
+  email: "info@thechampionindustries.com",
+  hours: "Mon — Sat · 10:00 AM to 7:00 PM",
 };
 
 export const STATS = [
   { value: "01", label: "India's First Patented Chamber" },
-  { value: "110mm", label: "Standard Inlet / Outlet" },
+  { value: "160mm", label: "Standard Inlet / Outlet" },
   { value: "100%", label: "Leakproof pvc Body" },
   { value: "6+", label: "Configurable Ports" },
 ];
